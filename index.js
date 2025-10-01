@@ -130,8 +130,11 @@ foodContainer.innerHTML="";
    </div>
  <a href="${food.video}" target="_blank"  class="btn btn-warning" >Watch Video</a>
 
-   `
- }
+   `;
+   document.getElementById("my_modal_3").showModal();
+
+ };
+
 
 loadCateory();
 loadRandomData();
