@@ -19,6 +19,10 @@ const loadFoods=(id)=>{
    // console.log(url);
 };
 
+const loadRandomData=()=>{
+  
+}
+ 
 const loadFoodDetails=()=>{
   console.log("food details thaka chai");
 }
