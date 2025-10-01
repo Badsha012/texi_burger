@@ -19,6 +19,10 @@ const loadFoods=(id)=>{
    // console.log(url);
 };
 
+const loadFoodDetails=()=>{
+  console.log("food details thaka chai");
+}
+
 const displayCategory=(categories) =>{
     //console.log(categories);
 
@@ -66,9 +70,11 @@ foodContainer.innerHTML="";
 // "price": 492,
 // "category": "Chicken"
 
+
+
     const foodCard=document.createElement("div");
     foodCard.innerHTML=`
-     <div class="p-5 bg-white flex gap-3 shadow rounded-xl">
+     <div onclick="loadFoodDetails()" class="p-5 bg-white flex gap-3 shadow rounded-xl">
             <div class="img flex-1">
               <img
                 src="${food.foodImg}"
