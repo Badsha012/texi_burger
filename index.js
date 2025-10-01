@@ -20,11 +20,18 @@ const loadFoods=(id)=>{
 };
 
 const loadRandomData=()=>{
+  const url=`https://taxi-kitchen-api.vercel.app/api/v1/foods/random`
   
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayFoods(data.foods));
 }
  
-const loadFoodDetails=()=>{
-  console.log("food details thaka chai");
+const loadFoodDetails=(id)=>{
+  const url=`https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`;
+  fetch(url)
+  .then(res=>res.json())
+  .then(data=>console.log(data.details))
 }
 
 const displayCategory=(categories) =>{
@@ -64,21 +71,13 @@ const displayFoods=(foods)=>{
 const foodContainer=document.getElementById("food-container");
 foodContainer.innerHTML="";
  foods.forEach((food)=>{
-    //console.log(food);
 
-
-//     "id": 53050,
-// "title": "Ayam Percik",
-// "catId": 2,
-// "foodImg": "https://www.themealdb.com/images/media/meals/020z181619788503.jpg",
-// "price": 492,
-// "category": "Chicken"
 
 
 
     const foodCard=document.createElement("div");
     foodCard.innerHTML=`
-     <div onclick="loadFoodDetails()" class="p-5 bg-white flex gap-3 shadow rounded-xl">
+     <div onclick="loadFoodDetails(${food.id})" class="p-5 bg-white flex gap-3 shadow rounded-xl">
             <div class="img flex-1">
               <img
                 src="${food.foodImg}"
@@ -116,3 +115,4 @@ foodContainer.innerHTML="";
 };
 
 loadCateory();
+loadRandomData();
